@@ -1,0 +1,17 @@
+class Game {
+
+	int posicion_x;
+	int posicion_y;
+	int ntab;
+	int direccion;
+	int aux1;
+
+	public:
+
+		Game(int ntab,int ran1, int ran2) {
+			this -> ntab = ntab;
+			this->posicion_x = ran1;
+			this->posicion_y = ran2;
+		}
+
+		
