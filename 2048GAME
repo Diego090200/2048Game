@@ -6,6 +6,17 @@
 
 using namespace std;
 
+int random1(int c){
+	int random;
+	srand(time(0));
+	return random = rand() % c - 1;
+}
+int random2(int c) {
+	int random;
+	srand(time(0));
+	return random = rand() % c - 1;
+}
+
 class Game {
 
 	int posicion_x;
@@ -14,55 +25,51 @@ class Game {
 	int direccion;
 	int aux1;
 
-	public:
+public:
 
-		Game(int ntab,int ran1, int ran2) {
-			this -> ntab = ntab;
-			this->posicion_x = ran1;
-			this->posicion_y = ran2;
-		}
+	Game(int ntab, int ran1, int ran2) {
+		this->ntab = ntab;
+		this->posicion_x = ran1;
+		this->posicion_y = ran2;
+	}
 
-		void imprimirtabla()
-		{
-			int ran1;
-			srand(time(0));
-			ran1 = rand() % ntab + 1;
-			int ran2;
-			srand(time(0));
-			ran2 = rand() % ntab + 1;
-
-			cout << "    ";
-			for (int n = 0; n < this->ntab; n++)
-			{
-				cout << " " << n << " ";
-			}
-			cout << endl;
-			cout << "    ";
-			for (int n = 0; n < this->ntab; n++)
-			{
-				cout << " - ";
-			}
-			cout << endl;
-			for (int i = 0; i < this->ntab; i++)
-			{
-				cout << i << " | ";
-				for (int j = 0; j < this->ntab; j++)
-				{
-					
-					if (this->posicion_x == j && this->posicion_y == i)
-					{
-						cout << " 2 ";
-					}
-					else
-					{
-						cout << "   ";
-					}
-				}
-
-				cout << endl;
-			}
-		}
+	void imprimirtabla()
+	{
 		
+
+		cout << "    ";
+		for (int n = 0; n < this->ntab; n++)
+		{
+			cout << " " << n << " ";
+		}
+		cout << endl;
+		cout << "    ";
+		for (int n = 0; n < this->ntab; n++)
+		{
+			cout << " - ";
+		}
+		cout << endl;
+		for (int i = 0; i < this->ntab; i++)
+		{
+			cout << i << " | ";
+			for (int j = 0; j < this->ntab; j++)
+			{
+
+				if (this->posicion_x == j && this->posicion_y == i)
+				{
+					cout << " 2 ";
+				}
+				else
+				{
+					cout << "   ";
+				}
+			}
+	
+
+			cout << endl;
+		}
+	}
+
 
 };
 
@@ -79,65 +86,53 @@ int main()
 	cin >> op;
 	system("pause");
 	system("cls");
-		
+
 	if (op == 1) {
 		int c = 4;
-		int ran1;
-		srand(time(0));
-		ran1 = rand() % c + 1;
-		int ran2;
-		srand(time(0));
-		ran2 = rand() % c + 1;
-		Game juego = Game(c,ran1,ran2);
+		int c2 = 4;
+	
+		Game juego = Game(c, random1(c), random2(c2));
 		juego.imprimirtabla();
+		cout << random1(c);
+		cout << random2(c2);
 	}
+
 	else if (op == 2) {
 		int e = 6;
-		int ran1;
-		srand(time(0));
-		ran1 = rand() % e + 1;
-		int ran2;
-		srand(time(0));
-		ran2 = rand() % e + 1;
-		Game juego = Game(e, ran1, ran2);
+		int e2 = 6;
+		
+		Game juego = Game(e, random1(e), random2(e2));
 		juego.imprimirtabla();
+		cout << random1(e);
+		cout << random2(e2);
 	}
 	else if (op == 3) {
+		
 		int d = 8;
-		int ran1;
-		srand(time(0));
-		ran1 = rand() % d + 1;
-		int ran2;
-		srand(time(0));
-		ran2 = rand() % d + 1;
-		cout << ran1;
-		cout << ran2;
-		Game juego = Game(d, ran1, ran2);
+		int d2 = 8;
+		
+		Game juego = Game(d, random1(d), random2(d2));
 		juego.imprimirtabla();
+		cout << random1(d) << endl;
+		cout << random2(d2)<<endl;
 	}
 	else if (op == 4) {
 		int co = 3;
-		int ran1;
-		srand(time(0));
-		ran1 = rand() % co + 1;
-		int ran2;
-		srand(time(0));
-		ran2 = rand() % co + 1;
-		cout << ran1;
-		cout << ran2;
-		Game juego = Game(co, ran1, ran2);
+		int co2 = 3;
+		
+		Game juego = Game(co, random1(co), random2(co2));
 		juego.imprimirtabla();
+		cout << random1(co) << endl;
+		cout << random2(co2) << endl;
 	}
 	else {
 		int c = 4;
-		int ran1;
-		srand(time(0));
-		ran1 = rand() % c + 1;
-		int ran2;
-		srand(time(0));
-		ran2 = rand() % c + 1;
-		Game juego = Game(c, ran1, ran2);
+		int c1 = 4;
+
+		Game juego = Game(c, random1(c), random2(c1));
 		juego.imprimirtabla();
+		cout << random1(c);
+		cout << random2(c1);
 	}
 	return 0;
 }
