@@ -1,43 +1,49 @@
 		void imprimirtabla()
+	{
+
+		cout << "    ";
+		for (int n = 0; n < this->ntab; n++)
 		{
-			int ran1;
-			srand(time(0));
-			ran1 = rand() % ntab + 1;
-			int ran2;
-			srand(time(0));
-			ran2 = rand() % ntab + 1;
-
-			cout << "    ";
-			for (int n = 0; n < this->ntab; n++)
-			{
-				cout << " " << n << " ";
-			}
-			cout << endl;
-			cout << "    ";
-			for (int n = 0; n < this->ntab; n++)
-			{
-				cout << " - ";
-			}
-			cout << endl;
-			for (int i = 0; i < this->ntab; i++)
-			{
-				cout << i << " | ";
-				for (int j = 0; j < this->ntab; j++)
-				{
-					
-					if (this->posicion_x == j && this->posicion_y == i)
-					{
-						cout << " 2 ";
-					}
-					else
-					{
-						cout << "   ";
-					}
-				}
-
-				cout << endl;
-			}
+			cout << " " << n << " ";
 		}
-		
+		cout << endl;
+		cout << "    ";
+		for (int n = 0; n < this->ntab; n++)
+		{
+			cout << " - ";
+		}
+		cout << endl;
+		for (int i = 0; i < this->ntab; i++)
+		{
+			cout << i << " | ";
+			for (int j = 0; j < this->ntab; j++)
+			{
+
+				if (this->posicionx == j && this->posiciony == i )
+				{
+					cout << " 2 ";
+				}
+				else
+				{
+					cout << "   ";
+				}
+			}
+			cout << endl;
+		}
+
+	}
+	void subir() {
+
+	}
+	void bajar() {
+
+	}
+	void izquierda() {
+
+	}
+	void derecha() {
+
+	}
+
 
 };
