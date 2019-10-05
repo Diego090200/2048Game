@@ -6,36 +6,35 @@
 
 using namespace std;
 
-int random1(int c){
-	int random;
-	srand(time(0));
-	return random = rand() % c - 1;
+int random1(int c) {
+	
+
+	return rand() % c ;
 }
-int random2(int c) {
-	int random;
-	srand(time(0));
-	return random = rand() % c - 1;
-}
+
 
 class Game {
 
 	int posicion_x;
 	int posicion_y;
+	int posicionx;
+	int posiciony;
 	int ntab;
 	int direccion;
 	int aux1;
 
 public:
 
-	Game(int ntab, int ran1, int ran2) {
+	Game(int ntab, int ran1, int ran2,int ran3,int ran4) {
 		this->ntab = ntab;
-		this->posicion_x = ran1;
-		this->posicion_y = ran2;
+		this->posicionx = ran1;
+		this->posiciony = ran2;
+		this->posicion_x = ran3;
+		this->posicion_y = ran4;
 	}
 
 	void imprimirtabla()
 	{
-		
 
 		cout << "    ";
 		for (int n = 0; n < this->ntab; n++)
@@ -55,7 +54,7 @@ public:
 			for (int j = 0; j < this->ntab; j++)
 			{
 
-				if (this->posicion_x == j && this->posicion_y == i)
+				if (this->posicionx == j && this->posiciony == i )
 				{
 					cout << " 2 ";
 				}
@@ -64,10 +63,21 @@ public:
 					cout << "   ";
 				}
 			}
-	
-
 			cout << endl;
 		}
+
+	}
+	void subir() {
+
+	}
+	void bajar() {
+
+	}
+	void izquierda() {
+
+	}
+	void derecha() {
+
 	}
 
 
@@ -76,6 +86,7 @@ public:
 int main()
 {
 	int op;
+	srand(time(0));
 	cout << "Con que tablero desea trabajar" << endl;
 	cout << "" << endl;
 	cout << " 1. Clasica (4 x 4)" << endl;
@@ -89,50 +100,38 @@ int main()
 
 	if (op == 1) {
 		int c = 4;
-		int c2 = 4;
-	
-		Game juego = Game(c, random1(c), random2(c2));
+		
+
+		Game juego = Game(c, random1(c), random1(c),random1(c), random1(c));
 		juego.imprimirtabla();
-		cout << random1(c);
-		cout << random2(c2);
 	}
 
 	else if (op == 2) {
 		int e = 6;
-		int e2 = 6;
-		
-		Game juego = Game(e, random1(e), random2(e2));
+
+		Game juego = Game(e, random1(e), random1(e), random1(e), random1(e));
 		juego.imprimirtabla();
-		cout << random1(e);
-		cout << random2(e2);
 	}
+
 	else if (op == 3) {
-		
 		int d = 8;
-		int d2 = 8;
 		
-		Game juego = Game(d, random1(d), random2(d2));
+		Game juego = Game(d, random1(d), random1(d), random1(d), random1(d));
 		juego.imprimirtabla();
-		cout << random1(d) << endl;
-		cout << random2(d2)<<endl;
 	}
+
 	else if (op == 4) {
 		int co = 3;
-		int co2 = 3;
-		
-		Game juego = Game(co, random1(co), random2(co2));
+
+		Game juego = Game(co, random1(co), random1(co), random1(co), random1(co));
 		juego.imprimirtabla();
-		cout << random1(co) << endl;
-		cout << random2(co2) << endl;
 	}
+
 	else {
 		int c = 4;
-		int c1 = 4;
 
-		Game juego = Game(c, random1(c), random2(c1));
+		Game juego = Game(c, random1(c), random1(c),random1(c), random1(c));
 		juego.imprimirtabla();
-		cout << random1(c);
-		cout << random2(c1);
 	}
 	return 0;
 }
