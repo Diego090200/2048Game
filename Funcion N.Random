@@ -1,0 +1,5 @@
+int random1(int c) {
+	
+
+	return rand() % c ;
+}
