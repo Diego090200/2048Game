@@ -7,35 +7,141 @@
 using namespace std;
 
 int random1(int c) {
-	
 
-	return rand() % c ;
+
+	return rand() % c;
 }
 
 
 class Game {
 
-	int posicion_x;
-	int posicion_y;
-	int posicionx;
-	int posiciony;
-	int ntab;
-	int direccion;
-	int aux1;
 
+	int posx;
+	int posy;
+	int posy2;
+	int posx2;
+	int ntab;
+	
 public:
 
-	Game(int ntab, int ran1, int ran2,int ran3,int ran4) {
+	Game(int ntab, int ran1, int ran2, int ran3, int ran4) {
 		this->ntab = ntab;
-		this->posicionx = ran1;
-		this->posiciony = ran2;
-		this->posicion_x = ran3;
-		this->posicion_y = ran4;
+		this->posx = ran1;
+		this->posy = ran2;
+		this->posx2 = ran3;
+		this->posy2 = ran4;
 	}
 
 	void imprimirtabla()
 	{
+		if (ntab == 4) {
+			int matriz[4][4];
+			matriz[posx][posy] = 2;
+			cout << "    ";
+			for (int n = 0; n < this->ntab; n++)
+			{
+				cout << " " << n << " ";
+			}
+			cout << endl;
+			cout << "    ";
+			for (int n = 0; n < this->ntab; n++)
+			{
+				cout << " - ";
+			}
+			cout << endl;
+			for (int i = 0; i < this->ntab; i++)
+			{
+				cout << i << " | ";
+				for (int j = 0; j < this->ntab; j++)
+				{
 
+					if (this->posx == j && this->posy == i)
+					{
+						cout << " " << matriz[posx][posy];
+					}
+					else
+					{
+						cout << "   ";
+					}
+				}
+				cout << endl;
+			}
+
+		}
+		
+		else if (ntab == 6) {
+			int matriz[6][6];
+			matriz[posx][posy] = 2;
+			cout << "    ";
+			for (int n = 0; n < this->ntab; n++)
+			{
+				cout << " " << n << " ";
+			}
+			cout << endl;
+			cout << "    ";
+			for (int n = 0; n < this->ntab; n++)
+			{
+				cout << " - ";
+			}
+			cout << endl;
+			for (int i = 0; i < this->ntab; i++)
+			{
+				cout << i << " | ";
+				for (int j = 0; j < this->ntab; j++)
+				{
+
+					if (this->posx == j && this->posy == i)
+					{
+						cout << " " << matriz[posx][posy];
+					}
+					else
+					{
+						cout << "   ";
+					}
+				}
+				cout << endl;
+			}
+
+		}
+
+		else if (ntab == 8) {
+			int matriz[8][8];
+			matriz[posx][posy] = 2;
+			cout << "    ";
+			for (int n = 0; n < this->ntab; n++)
+			{
+				cout << " " << n << " ";
+			}
+			cout << endl;
+			cout << "    ";
+			for (int n = 0; n < this->ntab; n++)
+			{
+				cout << " - ";
+			}
+			cout << endl;
+			for (int i = 0; i < this->ntab; i++)
+			{
+				cout << i << " | ";
+				for (int j = 0; j < this->ntab; j++)
+				{
+
+					if (this->posx == j && this->posy == i)
+					{
+						cout << " " << matriz[posx][posy];
+					}
+					else
+					{
+						cout << "   ";
+					}
+				}
+				cout << endl;
+			}
+
+		}
+
+		else if (ntab == 3) {
+		int matriz[3][3];
+		matriz[posx][posy] = 2;
 		cout << "    ";
 		for (int n = 0; n < this->ntab; n++)
 		{
@@ -54,9 +160,9 @@ public:
 			for (int j = 0; j < this->ntab; j++)
 			{
 
-				if (this->posicionx == j && this->posiciony == i )
+				if (this->posx == j && this->posy == i)
 				{
-					cout << " 2 ";
+					cout << " "<< matriz[posx][posy];
 				}
 				else
 				{
@@ -66,9 +172,25 @@ public:
 			cout << endl;
 		}
 
+		}
 	}
-	void subir() {
+	
+	void recorrer() {
+		for (int i = 0; i < ntab; i++) {
+			for (int i = 0; i < ntab; i++) {
+				//Atributo matriz[i][j];
+			}
+		}
+	}
 
+	void subir() {
+		//Llamamos la funcion recorrer
+		//if (atributo matriz = " ")
+		// else (evaluar valor de matriz[i][j--])
+				//if(matriz[i][j--] == " "){
+				// matriz[i][j--]
+				//else(matriz[i][j]+matriz[i][j--])
+			
 	}
 	void bajar() {
 
@@ -100,14 +222,15 @@ int main()
 
 	if (op == 1) {
 		int c = 4;
-		
+		int matrizA[4][4];
 
-		Game juego = Game(c, random1(c), random1(c),random1(c), random1(c));
+		Game juego = Game(c, random1(c), random1(c), random1(c), random1(c));
 		juego.imprimirtabla();
 	}
 
 	else if (op == 2) {
 		int e = 6;
+		int matrizB[6][6];
 
 		Game juego = Game(e, random1(e), random1(e), random1(e), random1(e));
 		juego.imprimirtabla();
@@ -115,13 +238,15 @@ int main()
 
 	else if (op == 3) {
 		int d = 8;
-		
+		int matrizC[8][8];
+
 		Game juego = Game(d, random1(d), random1(d), random1(d), random1(d));
 		juego.imprimirtabla();
 	}
 
 	else if (op == 4) {
 		int co = 3;
+		int matrizD[3][3];
 
 		Game juego = Game(co, random1(co), random1(co), random1(co), random1(co));
 		juego.imprimirtabla();
@@ -129,8 +254,9 @@ int main()
 
 	else {
 		int c = 4;
+		int matrizA[4][4];
 
-		Game juego = Game(c, random1(c), random1(c),random1(c), random1(c));
+		Game juego = Game(c, random1(c), random1(c), random1(c), random1(c));
 		juego.imprimirtabla();
 	}
 	return 0;
