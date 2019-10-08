@@ -1,49 +1,172 @@
 		void imprimirtabla()
 	{
-
-		cout << "    ";
-		for (int n = 0; n < this->ntab; n++)
-		{
-			cout << " " << n << " ";
-		}
-		cout << endl;
-		cout << "    ";
-		for (int n = 0; n < this->ntab; n++)
-		{
-			cout << " - ";
-		}
-		cout << endl;
-		for (int i = 0; i < this->ntab; i++)
-		{
-			cout << i << " | ";
-			for (int j = 0; j < this->ntab; j++)
+		if (ntab == 4) {											//Si el numero de espacios es de 4
+			this-> matrizA[posx][posy]=2;	
+			this-> matrizA[posx2][posy2] = 2;						//La matriz de 4x4 en las posiciones
+			cout << "    ";											//Random son igualadas al valor 2
+			for (int n = 0; n < this->ntab; n++)
 			{
-
-				if (this->posicionx == j && this->posiciony == i )
-				{
-					cout << " 2 ";
-				}
-				else
-				{
-					cout << "   ";
-				}
+				cout << " " << n << " ";
 			}
 			cout << endl;
+			cout << "    ";
+			for (int n = 0; n < this->ntab; n++)
+			{
+				cout << " - ";
+			}
+			cout << endl;
+			for (int i = 0; i < this->ntab; i++)
+			{
+				cout << i << " | ";
+				for (int j = 0; j < this->ntab; j++)
+				{
+					if (this->posx == j && this->posy == i)
+					{
+						cout << " " << this->matrizA[posx][posy];
+					}
+					else
+					{
+						cout << "   ";
+					}
+				}
+				cout << endl;
+			}
+
+		}
+		
+		else if (ntab == 6) {										//Si el numero de espacios es de 6
+			this->matrizB[posx][posy] = 2;							//La matriz de 6x6 en las posiciones
+			cout << "    ";											//Random son igualadas al valor 2
+			for (int n = 0; n < this->ntab; n++)
+			{
+				cout << " " << n << " ";
+			}
+			cout << endl;
+			cout << "    ";
+			for (int n = 0; n < this->ntab; n++)
+			{
+				cout << " - ";
+			}
+			cout << endl;
+			for (int i = 0; i < this->ntab; i++)
+			{
+				cout << i << " | ";
+				for (int j = 0; j < this->ntab; j++)
+				{
+
+					if (this->posx == j && this->posy == i)
+					{
+						cout << " " << this->matrizB[posx][posy];
+					}
+					else
+					{
+						cout << "   ";
+					}
+				}
+				cout << endl;
+			}
+
 		}
 
+		else if (ntab == 8) {										//Si el numero de espacios es de 8
+			this->matrizC[posx][posy] = 2;							//La matriz de 8x8 en las posiciones
+			cout << "    ";											//Random son igualadas al valor 2
+			for (int n = 0; n < this->ntab; n++)
+			{
+				cout << " " << n << " ";
+			}
+			cout << endl;
+			cout << "    ";
+			for (int n = 0; n < this->ntab; n++)
+			{
+				cout << " - ";
+			}
+			cout << endl;
+			for (int i = 0; i < this->ntab; i++)
+			{
+				cout << i << " | ";
+				for (int j = 0; j < this->ntab; j++)
+				{
+
+					if (this->posx == j && this->posy == i)
+					{
+						cout << " " << this->matrizC[posx][posy];
+					}
+					else
+					{
+						cout << "   ";
+					}
+				}
+				cout << endl;
+			}
+
+		}
+
+		else if (ntab == 3) {											//Si el numero de espacios es de 3
+			this->matrizD[posx][posy] = 2;								//La matriz de 3x3 en la posicion
+			cout << "    ";												//Random son igualadas al valor de 2
+			for (int n = 0; n < this->ntab; n++)
+			{
+				cout << " " << n << " ";
+			}
+			cout << endl;
+			cout << "    ";
+			for (int n = 0; n < this->ntab; n++)
+			{
+				cout << " - ";
+			}
+			cout << endl;
+			for (int i = 0; i < this->ntab; i++)
+			{
+				cout << i << " | ";
+				for (int j = 0; j < this->ntab; j++)
+				{
+
+					if (this->posx == j && this->posy == i)
+					{
+						cout << " "<< this->matrizD[posx][posy];
+					}
+					else
+					{
+						cout << "   ";
+					}
+				}
+				cout << endl;
+			}
+
+		}
+
+		else {
+			this->matrizA[posx][posy] = 2;
+			cout << "    ";
+			for (int n = 0; n < this->ntab; n++)
+			{
+				cout << " " << n << " ";
+			}
+			cout << endl;
+			cout << "    ";
+			for (int n = 0; n < this->ntab; n++)
+			{
+				cout << " - ";
+			}
+			cout << endl;
+			for (int i = 0; i < this->ntab; i++)
+			{
+				cout << i << " | ";
+				for (int j = 0; j < this->ntab; j++)
+				{
+
+					if (this->posx == j && this->posy == i)
+					{
+						cout << " " << this->matrizA[posx][posy];
+					}
+					else
+					{
+						cout << "   ";
+					}
+				}
+				cout << endl;
+			}
+
+		}
 	}
-	void subir() {
-
-	}
-	void bajar() {
-
-	}
-	void izquierda() {
-
-	}
-	void derecha() {
-
-	}
-
-
-};
