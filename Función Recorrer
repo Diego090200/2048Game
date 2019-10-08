@@ -1,0 +1,9 @@
+void recorrer() {
+		if (ntab == 4) {
+			for (int i = 0; i <= ntab; i++) {
+				for (int j = 0; j <= ntab; j++) {
+					this->matrizA[i][j];
+				}
+			}
+		}
+	}
