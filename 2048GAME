@@ -6,69 +6,265 @@
 
 using namespace std;
 
-int random1(int c) {
-	
+//Funcion para obtener numeros random
 
-	return rand() % c ;
+int random1(int c) {
+
+
+	return rand() % c;
 }
 
+//Clase Game
 
 class Game {
 
-	int posicion_x;
-	int posicion_y;
-	int posicionx;
-	int posiciony;
-	int ntab;
-	int direccion;
-	int aux1;
+	//Atributos para la clase Game
 
+	int posx;
+	int posy;
+	int posy2;
+	int posx2;
+	int ntab;
+	int matrizA[4][4];
+	int matrizB[6][6];
+	int matrizC[8][8];
+	int matrizD[3][3];
+	
 public:
 
-	Game(int ntab, int ran1, int ran2,int ran3,int ran4) {
-		this->ntab = ntab;
-		this->posicionx = ran1;
-		this->posiciony = ran2;
-		this->posicion_x = ran3;
-		this->posicion_y = ran4;
+	//Constructor
+
+	Game(int ntab, int ran1, int ran2, int ran3, int ran4) { 
+		this->ntab = ntab;                                       //Guarda el numero de espacios que debe tener la tabla
+		this->posx = ran1;										 //Guarda primer numero random
+		this->posy = ran2;										 //Guarda segundo numero random
+		this->posx2 = ran3;										 //Guarda tercer numero random
+		this->posy2 = ran4;										 //Guarda cuarto numero random
+
+		if (ntab == 4) {										 //Condicional si el numero de espacios es 4
+			for (int i = 0; i <= 4; i++) {						 //Debe utilizar la matriz de 4x4 en un for anidado
+				for (int j = 0; j <= 4; j++) {					 //Donde todas las posiciones son 0
+					this -> matrizA[i][j] = 0;
+				}
+			}
+		}
+
+		else if (ntab == 6) {									 //Condicional si el numero de espacios es 6
+			for (int i = 0; i <= 6; i++) {						 //Debe utilizar la matriz de 6x6 en un for anidado
+				for (int j = 0; j <= 6; j++) {					 //Donde todas las posiciones son 0
+					this-> matrizB[i][j] = 0;
+				}
+			}
+		}
+
+		else if (ntab == 8) {                                   //Condicional si el numero de espacios es 8
+			for (int i = 0; i <=8; i++) {						//Debe utilizar la matriz de 8x8 en un for anidado
+				for (int j = 0; j <=8; j++) {					//Donde todas las posiciones son 0
+					this-> matrizC[i][j] = 0;
+				}
+			}
+		}
+
+		else if (ntab == 3) {									//Condicional si el numero de espacios es 3
+			for (int i = 0; i <=3; i++) {						//Debe utilizar la matriz de 3x3 en un for anidado
+				for (int j = 0; j <=3; j++) {					//Donde todas las posiciones son 0
+					this-> matrizC[i][j] = 0;
+				}
+			}
+		}
 	}
 
 	void imprimirtabla()
 	{
-
-		cout << "    ";
-		for (int n = 0; n < this->ntab; n++)
-		{
-			cout << " " << n << " ";
-		}
-		cout << endl;
-		cout << "    ";
-		for (int n = 0; n < this->ntab; n++)
-		{
-			cout << " - ";
-		}
-		cout << endl;
-		for (int i = 0; i < this->ntab; i++)
-		{
-			cout << i << " | ";
-			for (int j = 0; j < this->ntab; j++)
+		if (ntab == 4) {											//Si el numero de espacios es de 4
+			this-> matrizA[posx][posy]=2;	
+			this-> matrizA[posx2][posy2] = 2;						//La matriz de 4x4 en las posiciones
+			cout << "    ";											//Random son igualadas al valor 2
+			for (int n = 0; n < this->ntab; n++)
 			{
-
-				if (this->posicionx == j && this->posiciony == i )
-				{
-					cout << " 2 ";
-				}
-				else
-				{
-					cout << "   ";
-				}
+				cout << " " << n << " ";
 			}
 			cout << endl;
+			cout << "    ";
+			for (int n = 0; n < this->ntab; n++)
+			{
+				cout << " - ";
+			}
+			cout << endl;
+			for (int i = 0; i < this->ntab; i++)
+			{
+				cout << i << " | ";
+				for (int j = 0; j < this->ntab; j++)
+				{
+					if (this->posx == j && this->posy == i)
+					{
+						cout << " " << this->matrizA[posx][posy];
+					}
+					else
+					{
+						cout << "   ";
+					}
+				}
+				cout << endl;
+			}
+
+		}
+		
+		else if (ntab == 6) {										//Si el numero de espacios es de 6
+			this->matrizB[posx][posy] = 2;							//La matriz de 6x6 en las posiciones
+			cout << "    ";											//Random son igualadas al valor 2
+			for (int n = 0; n < this->ntab; n++)
+			{
+				cout << " " << n << " ";
+			}
+			cout << endl;
+			cout << "    ";
+			for (int n = 0; n < this->ntab; n++)
+			{
+				cout << " - ";
+			}
+			cout << endl;
+			for (int i = 0; i < this->ntab; i++)
+			{
+				cout << i << " | ";
+				for (int j = 0; j < this->ntab; j++)
+				{
+
+					if (this->posx == j && this->posy == i)
+					{
+						cout << " " << this->matrizB[posx][posy];
+					}
+					else
+					{
+						cout << "   ";
+					}
+				}
+				cout << endl;
+			}
+
 		}
 
-	}
-	void subir() {
+		else if (ntab == 8) {										//Si el numero de espacios es de 8
+			this->matrizC[posx][posy] = 2;							//La matriz de 8x8 en las posiciones
+			cout << "    ";											//Random son igualadas al valor 2
+			for (int n = 0; n < this->ntab; n++)
+			{
+				cout << " " << n << " ";
+			}
+			cout << endl;
+			cout << "    ";
+			for (int n = 0; n < this->ntab; n++)
+			{
+				cout << " - ";
+			}
+			cout << endl;
+			for (int i = 0; i < this->ntab; i++)
+			{
+				cout << i << " | ";
+				for (int j = 0; j < this->ntab; j++)
+				{
 
+					if (this->posx == j && this->posy == i)
+					{
+						cout << " " << this->matrizC[posx][posy];
+					}
+					else
+					{
+						cout << "   ";
+					}
+				}
+				cout << endl;
+			}
+
+		}
+
+		else if (ntab == 3) {											//Si el numero de espacios es de 3
+			this->matrizD[posx][posy] = 2;								//La matriz de 3x3 en la posicion
+			cout << "    ";												//Random son igualadas al valor de 2
+			for (int n = 0; n < this->ntab; n++)
+			{
+				cout << " " << n << " ";
+			}
+			cout << endl;
+			cout << "    ";
+			for (int n = 0; n < this->ntab; n++)
+			{
+				cout << " - ";
+			}
+			cout << endl;
+			for (int i = 0; i < this->ntab; i++)
+			{
+				cout << i << " | ";
+				for (int j = 0; j < this->ntab; j++)
+				{
+
+					if (this->posx == j && this->posy == i)
+					{
+						cout << " "<< this->matrizD[posx][posy];
+					}
+					else
+					{
+						cout << "   ";
+					}
+				}
+				cout << endl;
+			}
+
+		}
+
+		else {
+			this->matrizA[posx][posy] = 2;
+			cout << "    ";
+			for (int n = 0; n < this->ntab; n++)
+			{
+				cout << " " << n << " ";
+			}
+			cout << endl;
+			cout << "    ";
+			for (int n = 0; n < this->ntab; n++)
+			{
+				cout << " - ";
+			}
+			cout << endl;
+			for (int i = 0; i < this->ntab; i++)
+			{
+				cout << i << " | ";
+				for (int j = 0; j < this->ntab; j++)
+				{
+
+					if (this->posx == j && this->posy == i)
+					{
+						cout << " " << this->matrizA[posx][posy];
+					}
+					else
+					{
+						cout << "   ";
+					}
+				}
+				cout << endl;
+			}
+
+		}
+	}
+	
+	void recorrer() {
+		if (ntab == 4) {
+			for (int i = 0; i <= ntab; i++) {
+				for (int j = 0; j <= ntab; j++) {
+					this->matrizA[i][j];
+				}
+			}
+		}
+	}
+
+	void subir() {
+		//Llamamos la funcion recorrer
+		//if (atributo matriz = " ")
+		// else (evaluar valor de matriz[i][j--])
+				//if(matriz[i][j--] == " "){
+				// matriz[i][j--]
+				//else(matriz[i][j]+matriz[i][j--])
+			
 	}
 	void bajar() {
 
@@ -100,14 +296,15 @@ int main()
 
 	if (op == 1) {
 		int c = 4;
-		
+		int matrizA[4][4];
 
-		Game juego = Game(c, random1(c), random1(c),random1(c), random1(c));
+		Game juego = Game(c, random1(c), random1(c), random1(c), random1(c));
 		juego.imprimirtabla();
 	}
 
 	else if (op == 2) {
 		int e = 6;
+		int matrizB[6][6];
 
 		Game juego = Game(e, random1(e), random1(e), random1(e), random1(e));
 		juego.imprimirtabla();
@@ -115,13 +312,15 @@ int main()
 
 	else if (op == 3) {
 		int d = 8;
-		
+		int matrizC[8][8];
+
 		Game juego = Game(d, random1(d), random1(d), random1(d), random1(d));
 		juego.imprimirtabla();
 	}
 
 	else if (op == 4) {
 		int co = 3;
+		int matrizD[3][3];
 
 		Game juego = Game(co, random1(co), random1(co), random1(co), random1(co));
 		juego.imprimirtabla();
@@ -129,8 +328,9 @@ int main()
 
 	else {
 		int c = 4;
+		int matrizA[4][4];
 
-		Game juego = Game(c, random1(c), random1(c),random1(c), random1(c));
+		Game juego = Game(c, random1(c), random1(c), random1(c), random1(c));
 		juego.imprimirtabla();
 	}
 	return 0;
