@@ -1,9 +1,9 @@
 		void imprimirtabla()
 	{
-		if (ntab == 4) {											//Si el numero de espacios es de 4
-			this-> matrizA[posx][posy]=2;	
-			this-> matrizA[posx2][posy2] = 2;						//La matriz de 4x4 en las posiciones
-			cout << "    ";											//Random son igualadas al valor 2
+		if (ntab == 4) {											
+			this->matrizA[posx][posy] = 2;
+			this->matrizA[posx2][posy2] = 2;						
+			cout << "    ";											
 			for (int n = 0; n < this->ntab; n++)
 			{
 				cout << " " << n << " ";
@@ -24,6 +24,9 @@
 					{
 						cout << " " << this->matrizA[posx][posy];
 					}
+					else if (this->posx2 == j && this->posy2 == i) {
+						cout << " " << this->matrizA[posx2][posy2];
+					}
 					else
 					{
 						cout << "   ";
@@ -33,9 +36,10 @@
 			}
 
 		}
-		
+
 		else if (ntab == 6) {										//Si el numero de espacios es de 6
-			this->matrizB[posx][posy] = 2;							//La matriz de 6x6 en las posiciones
+			this->matrizB[posx][posy] = 2;	
+			this->matrizB[posx2][posy2] = 2;						//La matriz de 6x6 en las posiciones
 			cout << "    ";											//Random son igualadas al valor 2
 			for (int n = 0; n < this->ntab; n++)
 			{
@@ -58,6 +62,9 @@
 					{
 						cout << " " << this->matrizB[posx][posy];
 					}
+					else if (this->posx2 == j && this->posy2 == i) {
+						cout << " " << this->matrizB[posx2][posy2];
+					}
 					else
 					{
 						cout << "   ";
@@ -69,7 +76,8 @@
 		}
 
 		else if (ntab == 8) {										//Si el numero de espacios es de 8
-			this->matrizC[posx][posy] = 2;							//La matriz de 8x8 en las posiciones
+			this->matrizC[posx][posy] = 2;	
+			this->matrizC[posx2][posy2] = 2;						//La matriz de 8x8 en las posiciones
 			cout << "    ";											//Random son igualadas al valor 2
 			for (int n = 0; n < this->ntab; n++)
 			{
@@ -92,6 +100,9 @@
 					{
 						cout << " " << this->matrizC[posx][posy];
 					}
+					else if (this->posx2 == j && this->posy2 == i) {
+						cout << " " << this->matrizC[posx2][posy2];
+					}
 					else
 					{
 						cout << "   ";
@@ -103,7 +114,8 @@
 		}
 
 		else if (ntab == 3) {											//Si el numero de espacios es de 3
-			this->matrizD[posx][posy] = 2;								//La matriz de 3x3 en la posicion
+			this->matrizD[posx][posy] = 2;	
+			this->matrizD[posx2][posy2] = 2;							//La matriz de 3x3 en la posicion
 			cout << "    ";												//Random son igualadas al valor de 2
 			for (int n = 0; n < this->ntab; n++)
 			{
@@ -124,7 +136,10 @@
 
 					if (this->posx == j && this->posy == i)
 					{
-						cout << " "<< this->matrizD[posx][posy];
+						cout << " " << this->matrizD[posx][posy];
+					}
+					else if (this->posx2 == j && this->posy2 == i) {
+						cout << "  " << this->matrizD[posx2][posy2];
 					}
 					else
 					{
@@ -138,6 +153,7 @@
 
 		else {
 			this->matrizA[posx][posy] = 2;
+			this->matrizA[posx2][posy2] = 2;
 			cout << "    ";
 			for (int n = 0; n < this->ntab; n++)
 			{
@@ -169,4 +185,5 @@
 			}
 
 		}
+
 	}
