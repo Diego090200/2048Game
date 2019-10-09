@@ -40,16 +40,8 @@ public:
 		this->posy = ran2;	
 		this->posx2 = ran3;
 		this->posy2 = ran4;
-		//do {
-			//if (this->posx == ran3 && this->posy == ran4) {
-			//	this->posx2 = random1(ntab);
-			//	this->posy2 = random1(ntab);
-			//}
-			//else {
-				//this->posx2 = ran3;
-				//this->posy2 = ran4;
-			//}
-		//} while (this->posx != ran3  && this->posy != ran4);
+		
+		//Dependiendo el numero de espacios se crea la matriz a utilizar, y se inicia con todas las posiciones en 0
 
 		if (ntab == 4) {										 
 			for (int i = 0; i <= 4; i++) {						 
@@ -83,6 +75,8 @@ public:
 			}
 		}
 	}
+
+	//Funcion para imprimir la tabla inicial, en esta se imprime el valor 2 en dos posiciones aleatorias
 
 	void imprimirtabla()
 	{
@@ -271,13 +265,29 @@ public:
 			}
 
 		}
+
 	}
 
+	//Funcion para realizar los movimientos
+
 	void recorrer(string mov) {
-		int r;
+
+		//Depende del numero de tabla 
+
 		if (ntab == 4) {
 
+			//Depende del movimiento recibido de la funcion principal se realizan los movimientos
+			//W arriba, S abajo, D derecha, A izquierda
+
 			if (mov == "w") {
+
+				//Se realiza un for anidado esto para recorrer cada posicion de la matriz
+				//Dependiendo la direccion seleccionada esta se mueve en el eje x o y
+				//para esto el valor de la posicion debe ser 0 o mayor a este
+				//para poder sumar las posiciones estas deben ser  0 o igual al valor de la posicion siguiente
+				//al realizar la suma este debe dejar la casilla en 0
+				//debido al ciclo este sigue recorriendo el arreglo y realizando los procedimientos  
+				// hasta que este llegue a la ultima posicion.
 
 				for (int i = 0; i <= ntab; i++) {
 					for (int j = 0; j <= ntab; j++) {
@@ -292,6 +302,8 @@ public:
 					}
 				}
 			}
+
+			//Al ser la misma matriz unicamente cambian los movimientos de i o de j dependiendo la direccion
 
 			else if (mov == "s") {
 				for (int i = 0; i <= ntab; i++) {
@@ -336,6 +348,22 @@ public:
 				}
 			}
 		}
+
+		//En este las acciones se repiten unicamente ntab sera diferente, se realiza el mismo procedimiento para estas
+		//Se colocan sus 4 movimientos
+
+		else if (ntab == 6) {
+
+		}
+
+		else if (ntab == 8) {
+
+		}
+
+		else if (ntab == 3) {
+
+		}
+
 	}
 
 };
@@ -350,6 +378,7 @@ int main()
 	cout << " 2. Extendida (6 x 6)" << endl;
 	cout << " 3. Dificil (8 x 8)" << endl;
 	cout << " 4. Compacta (3 x 3)" << endl;
+	cout << "" << endl;
 	cout << "Ingrese una opcion" << endl;
 	cin >> op;
 	system("pause");
@@ -361,9 +390,7 @@ int main()
 
 		Game juego = Game(c, random1(c), random1(c), random1(c), random1(c));
 		juego.imprimirtabla();
-		system("pause");
-		system("cls");
-
+		cout << "" << endl;
 		cout << "ingrese movimiento" << endl;
 		cin >> mov;
 
@@ -377,8 +404,7 @@ int main()
 		Game juego = Game(e, random1(e), random1(e), random1(e), random1(e));
 		juego.imprimirtabla();
 
-		system("pause");
-		system("cls");
+		cout << "" << endl;
 
 		cout << "ingrese movimiento" << endl;
 		cin >> mov;
@@ -393,9 +419,7 @@ int main()
 		Game juego = Game(d, random1(d), random1(d), random1(d), random1(d));
 		juego.imprimirtabla();
 
-		system("pause");
-		system("cls");
-
+		cout << "" << endl;
 		cout << "ingrese movimiento" << endl;
 		cin >> mov;
 
@@ -409,9 +433,7 @@ int main()
 		Game juego = Game(co, random1(co), random1(co), random1(co), random1(co));
 		juego.imprimirtabla();
 
-		system("pause");
-		system("cls");
-
+		cout << "" << endl;
 		cout << "ingrese movimiento" << endl;
 		cin >> mov;
 
@@ -425,8 +447,7 @@ int main()
 		Game juego = Game(c, random1(c), random1(c), random1(c), random1(c));
 		juego.imprimirtabla();
 
-		system("pause");
-		system("cls");
+		cout << "" << endl;
 
 		cout << "ingrese movimiento" << endl;
 		cin >> mov;
