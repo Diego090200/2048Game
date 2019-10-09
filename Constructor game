@@ -1,3 +1,5 @@
+//Clase Game
+
 class Game {
 
 	//Atributos para la clase Game
@@ -11,46 +13,48 @@ class Game {
 	int matrizB[6][6];
 	int matrizC[8][8];
 	int matrizD[3][3];
-	
+
 public:
 
 	//Constructor
 
-	Game(int ntab, int ran1, int ran2, int ran3, int ran4) { 
-		this->ntab = ntab;                                       //Guarda el numero de espacios que debe tener la tabla
-		this->posx = ran1;										 //Guarda primer numero random
-		this->posy = ran2;										 //Guarda segundo numero random
-		this->posx2 = ran3;										 //Guarda tercer numero random
-		this->posy2 = ran4;										 //Guarda cuarto numero random
+	Game(int ntab, int ran1, int ran2, int ran3, int ran4) {
+		this->ntab = ntab;                                       
+		this->posx = ran1;										 
+		this->posy = ran2;	
+		this->posx2 = ran3;
+		this->posy2 = ran4;
+		
+		//Dependiendo el numero de espacios se crea la matriz a utilizar, y se inicia con todas las posiciones en 0
 
-		if (ntab == 4) {										 //Condicional si el numero de espacios es 4
-			for (int i = 0; i <= 4; i++) {						 //Debe utilizar la matriz de 4x4 en un for anidado
-				for (int j = 0; j <= 4; j++) {					 //Donde todas las posiciones son 0
-					this -> matrizA[i][j] = 0;
+		if (ntab == 4) {										 
+			for (int i = 0; i <= 4; i++) {						 
+				for (int j = 0; j <= 4; j++) {					 
+					this->matrizA[i][j] = 0;
 				}
 			}
 		}
 
-		else if (ntab == 6) {									 //Condicional si el numero de espacios es 6
-			for (int i = 0; i <= 6; i++) {						 //Debe utilizar la matriz de 6x6 en un for anidado
-				for (int j = 0; j <= 6; j++) {					 //Donde todas las posiciones son 0
-					this-> matrizB[i][j] = 0;
+		else if (ntab == 6) {									 
+			for (int i = 0; i <= 6; i++) {						 
+				for (int j = 0; j <= 6; j++) {					 
+					this->matrizB[i][j] = 0;
 				}
 			}
 		}
 
-		else if (ntab == 8) {                                   //Condicional si el numero de espacios es 8
-			for (int i = 0; i <=8; i++) {						//Debe utilizar la matriz de 8x8 en un for anidado
-				for (int j = 0; j <=8; j++) {					//Donde todas las posiciones son 0
-					this-> matrizC[i][j] = 0;
+		else if (ntab == 8) {                                   
+			for (int i = 0; i <= 8; i++) {						
+				for (int j = 0; j <= 8; j++) {					
+					this->matrizC[i][j] = 0;
 				}
 			}
 		}
 
-		else if (ntab == 3) {									//Condicional si el numero de espacios es 3
-			for (int i = 0; i <=3; i++) {						//Debe utilizar la matriz de 3x3 en un for anidado
-				for (int j = 0; j <=3; j++) {					//Donde todas las posiciones son 0
-					this-> matrizC[i][j] = 0;
+		else if (ntab == 3) {									
+			for (int i = 0; i <= 3; i++) {						
+				for (int j = 0; j <= 3; j++) {					
+					this->matrizC[i][j] = 0;
 				}
 			}
 		}
