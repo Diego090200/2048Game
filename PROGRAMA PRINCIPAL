@@ -8,6 +8,7 @@ int main()
 	cout << " 2. Extendida (6 x 6)" << endl;
 	cout << " 3. Dificil (8 x 8)" << endl;
 	cout << " 4. Compacta (3 x 3)" << endl;
+	cout << "" << endl;
 	cout << "Ingrese una opcion" << endl;
 	cin >> op;
 	system("pause");
@@ -15,38 +16,73 @@ int main()
 
 	if (op == 1) {
 		int c = 4;
-		
+		string mov;
 
-		Game juego = Game(c, random1(c), random1(c),random1(c), random1(c));
+		Game juego = Game(c, random1(c), random1(c), random1(c), random1(c));
 		juego.imprimirtabla();
+		cout << "" << endl;
+		cout << "ingrese movimiento" << endl;
+		cin >> mov;
+
+		juego.recorrer(mov);
 	}
 
 	else if (op == 2) {
 		int e = 6;
+		string mov;
 
 		Game juego = Game(e, random1(e), random1(e), random1(e), random1(e));
 		juego.imprimirtabla();
+
+		cout << "" << endl;
+
+		cout << "ingrese movimiento" << endl;
+		cin >> mov;
+
+		juego.recorrer(mov);
 	}
 
 	else if (op == 3) {
 		int d = 8;
-		
+		string mov;
+
 		Game juego = Game(d, random1(d), random1(d), random1(d), random1(d));
 		juego.imprimirtabla();
+
+		cout << "" << endl;
+		cout << "ingrese movimiento" << endl;
+		cin >> mov;
+
+		juego.recorrer(mov);
 	}
 
 	else if (op == 4) {
 		int co = 3;
+		string mov;
 
 		Game juego = Game(co, random1(co), random1(co), random1(co), random1(co));
 		juego.imprimirtabla();
+
+		cout << "" << endl;
+		cout << "ingrese movimiento" << endl;
+		cin >> mov;
+
+		juego.recorrer(mov);
 	}
 
 	else {
 		int c = 4;
+		string mov;
 
-		Game juego = Game(c, random1(c), random1(c),random1(c), random1(c));
+		Game juego = Game(c, random1(c), random1(c), random1(c), random1(c));
 		juego.imprimirtabla();
+
+		cout << "" << endl;
+
+		cout << "ingrese movimiento" << endl;
+		cin >> mov;
+
+		juego.recorrer(mov);
 	}
 	return 0;
 }
