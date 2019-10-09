@@ -1,0 +1,642 @@
+#include <iostream>
+#include <string>
+#include <cstdlib>
+#include <ctime>
+
+
+using namespace std;
+
+//Funcion para obtener numeros random
+
+int random1(int c) {
+
+
+	return rand() % c;
+}
+
+//Clase Game
+
+class Game {
+
+	//Atributos para la clase Game
+
+	int posx;
+	int posy;
+	int posy2;
+	int posx2;
+	int ntab;
+	int matrizA[4][4];
+	int matrizB[6][6];
+	int matrizC[8][8];
+	int matrizD[3][3];
+
+public:
+
+	//Constructor
+
+	Game(int ntab, int ran1, int ran2, int ran3, int ran4) {
+		this->ntab = ntab;
+		this->posx = ran1;
+		this->posy = ran2;
+		this->posx2 = ran3;
+		this->posy2 = ran4;
+
+		//Dependiendo el numero de espacios se crea la matriz a utilizar, y se inicia con todas las posiciones en 0
+
+		if (ntab == 4) {
+			for (int i = 0; i <= 4; i++) {
+				for (int j = 0; j <= 4; j++) {
+					this->matrizA[i][j] = 0;
+				}
+			}
+		}
+
+		else if (ntab == 6) {
+			for (int i = 0; i <= 6; i++) {
+				for (int j = 0; j <= 6; j++) {
+					this->matrizB[i][j] = 0;
+				}
+			}
+		}
+
+		else if (ntab == 8) {
+			for (int i = 0; i <= 8; i++) {
+				for (int j = 0; j <= 8; j++) {
+					this->matrizC[i][j] = 0;
+				}
+			}
+		}
+
+		else if (ntab == 3) {
+			for (int i = 0; i <= 3; i++) {
+				for (int j = 0; j <= 3; j++) {
+					this->matrizC[i][j] = 0;
+				}
+			}
+		}
+	}
+
+	//Funcion para imprimir la tabla inicial, en esta se imprime el valor 2 en dos posiciones aleatorias
+
+	void imprimirtabla()
+	{
+		if (ntab == 4) {
+			this->matrizA[posx][posy] = 2;
+			this->matrizA[posx2][posy2] = 2;
+			cout << "    ";
+			for (int n = 0; n < this->ntab; n++)
+			{
+				cout << " " << n << " ";
+			}
+			cout << endl;
+			cout << "    ";
+			for (int n = 0; n < this->ntab; n++)
+			{
+				cout << " - ";
+			}
+			cout << endl;
+			for (int i = 0; i < this->ntab; i++)
+			{
+				cout << i << " | ";
+				for (int j = 0; j < this->ntab; j++)
+				{
+					if (this->posx == j && this->posy == i)
+					{
+						cout << " " << this->matrizA[posx][posy];
+					}
+					else if (this->posx2 == j && this->posy2 == i) {
+						cout << " " << this->matrizA[posx2][posy2];
+					}
+					else
+					{
+						cout << "   ";
+					}
+				}
+				cout << endl;
+			}
+
+		}
+
+		else if (ntab == 6) {										//Si el numero de espacios es de 6
+			this->matrizB[posx][posy] = 2;
+			this->matrizB[posx2][posy2] = 2;						//La matriz de 6x6 en las posiciones
+			cout << "    ";											//Random son igualadas al valor 2
+			for (int n = 0; n < this->ntab; n++)
+			{
+				cout << " " << n << " ";
+			}
+			cout << endl;
+			cout << "    ";
+			for (int n = 0; n < this->ntab; n++)
+			{
+				cout << " - ";
+			}
+			cout << endl;
+			for (int i = 0; i < this->ntab; i++)
+			{
+				cout << i << " | ";
+				for (int j = 0; j < this->ntab; j++)
+				{
+
+					if (this->posx == j && this->posy == i)
+					{
+						cout << " " << this->matrizB[posx][posy];
+					}
+					else if (this->posx2 == j && this->posy2 == i) {
+						cout << " " << this->matrizB[posx2][posy2];
+					}
+					else
+					{
+						cout << "   ";
+					}
+				}
+				cout << endl;
+			}
+
+		}
+
+		else if (ntab == 8) {										//Si el numero de espacios es de 8
+			this->matrizC[posx][posy] = 2;
+			this->matrizC[posx2][posy2] = 2;						//La matriz de 8x8 en las posiciones
+			cout << "    ";											//Random son igualadas al valor 2
+			for (int n = 0; n < this->ntab; n++)
+			{
+				cout << " " << n << " ";
+			}
+			cout << endl;
+			cout << "    ";
+			for (int n = 0; n < this->ntab; n++)
+			{
+				cout << " - ";
+			}
+			cout << endl;
+			for (int i = 0; i < this->ntab; i++)
+			{
+				cout << i << " | ";
+				for (int j = 0; j < this->ntab; j++)
+				{
+
+					if (this->posx == j && this->posy == i)
+					{
+						cout << " " << this->matrizC[posx][posy];
+					}
+					else if (this->posx2 == j && this->posy2 == i) {
+						cout << " " << this->matrizC[posx2][posy2];
+					}
+					else
+					{
+						cout << "   ";
+					}
+				}
+				cout << endl;
+			}
+
+		}
+
+		else if (ntab == 3) {											//Si el numero de espacios es de 3
+			this->matrizD[posx][posy] = 2;
+			this->matrizD[posx2][posy2] = 2;							//La matriz de 3x3 en la posicion
+			cout << "    ";												//Random son igualadas al valor de 2
+			for (int n = 0; n < this->ntab; n++)
+			{
+				cout << " " << n << " ";
+			}
+			cout << endl;
+			cout << "    ";
+			for (int n = 0; n < this->ntab; n++)
+			{
+				cout << " - ";
+			}
+			cout << endl;
+			for (int i = 0; i < this->ntab; i++)
+			{
+				cout << i << " | ";
+				for (int j = 0; j < this->ntab; j++)
+				{
+
+					if (this->posx == j && this->posy == i)
+					{
+						cout << " " << this->matrizD[posx][posy];
+					}
+					else if (this->posx2 == j && this->posy2 == i) {
+						cout << "  " << this->matrizD[posx2][posy2];
+					}
+					else
+					{
+						cout << "   ";
+					}
+				}
+				cout << endl;
+			}
+
+		}
+
+		else {
+			this->matrizA[posx][posy] = 2;
+			this->matrizA[posx2][posy2] = 2;
+			cout << "    ";
+			for (int n = 0; n < this->ntab; n++)
+			{
+				cout << " " << n << " ";
+			}
+			cout << endl;
+			cout << "    ";
+			for (int n = 0; n < this->ntab; n++)
+			{
+				cout << " - ";
+			}
+			cout << endl;
+			for (int i = 0; i < this->ntab; i++)
+			{
+				cout << i << " | ";
+				for (int j = 0; j < this->ntab; j++)
+				{
+
+					if (this->posx == j && this->posy == i)
+					{
+						cout << " " << this->matrizA[posx][posy];
+					}
+					else
+					{
+						cout << "   ";
+					}
+				}
+				cout << endl;
+			}
+
+		}
+
+	}
+
+	//Funcion para realizar los movimientos
+
+	void recorrer(string mov) {
+		int r;
+		//Depende del numero de tabla 
+
+		if (ntab == 4) {
+
+			//Depende del movimiento recibido de la funcion principal se realizan los movimientos
+			//W arriba, S abajo, D derecha, A izquierda
+
+			if (mov == "w") {
+
+				//Se realiza un for anidado esto para recorrer cada posicion de la matriz
+				//Dependiendo la direccion seleccionada esta se mueve en el eje x o y
+				//para esto el valor de la posicion debe ser 0 o mayor a este
+				//para poder sumar las posiciones estas deben ser  0 o igual al valor de la posicion siguiente
+				//al realizar la suma este debe dejar la casilla en 0
+				//debido al ciclo este sigue recorriendo el arreglo y realizando los procedimientos  
+				// hasta que este llegue a la ultima posicion.
+
+				for (int i = 0; i <= ntab; i++) {
+					for (int j = 0; j <= ntab; j++) {
+						this->matrizA[i][j];
+
+						if (matrizA[i][j++] >= 0) {
+							if (matrizA[i][j++] == 0 || matrizA[i][j++] == matrizA[i][j]) {
+								matrizA[i][j++] = matrizA[i][j] + matrizA[i][j++];
+								matrizA[i][j] = 0;
+							}
+						}
+					}
+				}
+			}
+
+			//Al ser la misma matriz unicamente cambian los movimientos de i o de j dependiendo la direccion
+
+			else if (mov == "s") {
+				for (int i = 0; i <= ntab; i++) {
+					for (int j = 0; j <= ntab; j++) {
+						this->matrizA[i][j];
+
+						if (matrizA[i][j--] >= 0) {
+							if (matrizA[i][j--] == 0 || matrizA[i][j--] == matrizA[i][j]) {
+								matrizA[i][j--] = matrizA[i][j] + matrizA[i][j--];
+								matrizA[i][j] = 0;
+							}
+						}
+					}
+				}
+			}
+			else if (mov == "a") {
+				for (int i = 0; i <= ntab; i++) {
+					for (int j = 0; j <= ntab; j++) {
+						this->matrizA[i][j];
+
+						if (matrizA[i++][j] >= 0) {
+							if (matrizA[i++][j] == 0 || matrizA[i++][j] == matrizA[i][j]) {
+								matrizA[i++][j] = matrizA[i][j] + matrizA[i++][j];
+								matrizA[i][j] = 0;
+							}
+						}
+					}
+				}
+			}
+			else if (mov == "d") {
+				for (int i = 0; i <= ntab; i++) {
+					for (int j = 0; j <= ntab; j++) {
+						this->matrizA[i][j];
+
+						if (matrizA[i--][j] >= 0) {
+							if (matrizA[i--][j] == 0 || matrizA[i--][j] == matrizA[i][j]) {
+								matrizA[i--][j] = matrizA[i][j] + matrizA[i--][j];
+								matrizA[i][j] = 0;
+							}
+						}
+					}
+				}
+			}
+		}
+
+		//En este las acciones se repiten unicamente ntab sera diferente, se realiza el mismo procedimiento para estas
+		//Se colocan sus 4 movimientos
+
+		else if (ntab == 6) {
+
+			if (mov == "w") {
+
+				for (int i = 0; i <= ntab; i++) {
+					for (int j = 0; j <= ntab; j++) {
+						this->matrizB[i][j];
+
+						if (matrizB[i][j++] >= 0) {
+							if (matrizB[i][j++] == 0 || matrizB[i][j++] == matrizB[i][j]) {
+								matrizB[i][j++] = matrizB[i][j] + matrizB[i][j++];
+								matrizB[i][j] = 0;
+							}
+						}
+					}
+				}
+			}
+
+
+			else if (mov == "s") {
+				for (int i = 0; i <= ntab; i++) {
+					for (int j = 0; j <= ntab; j++) {
+						this->matrizB[i][j];
+
+						if (matrizA[i][j--] >= 0) {
+							if (matrizB[i][j--] == 0 || matrizB[i][j--] == matrizB[i][j]) {
+								matrizB[i][j--] = matrizB[i][j] + matrizB[i][j--];
+								matrizB[i][j] = 0;
+							}
+						}
+					}
+				}
+			}
+
+			else if (mov == "a") {
+				for (int i = 0; i <= ntab; i++) {
+					for (int j = 0; j <= ntab; j++) {
+						this->matrizB[i][j];
+
+						if (matrizB[i++][j] >= 0) {
+							if (matrizB[i++][j] == 0 || matrizB[i++][j] == matrizB[i][j]) {
+								matrizB[i++][j] = matrizB[i][j] + matrizB[i++][j];
+								matrizB[i][j] = 0;
+							}
+						}
+					}
+				}
+			}
+
+			else if (mov == "d") {
+				for (int i = 0; i <= ntab; i++) {
+					for (int j = 0; j <= ntab; j++) {
+						this->matrizB[i][j];
+
+						if (matrizB[i--][j] >= 0) {
+							if (matrizB[i--][j] == 0 || matrizB[i--][j] == matrizB[i][j]) {
+								matrizB[i--][j] = matrizB[i][j] + matrizB[i--][j];
+								matrizB[i][j] = 0;
+							}
+						}
+					}
+				}
+			}
+		}
+
+		else if (ntab == 8) {
+
+		if (mov == "w") {
+
+			for (int i = 0; i <= ntab; i++) {
+				for (int j = 0; j <= ntab; j++) {
+					this->matrizC[i][j];
+
+					if (matrizC[i][j++] >= 0) {
+						if (matrizC[i][j++] == 0 || matrizC[i][j++] == matrizC[i][j]) {
+							matrizC[i][j++] = matrizC[i][j] + matrizC[i][j++];
+							matrizC[i][j] = 0;
+						}
+					}
+				}
+			}
+		}
+
+
+		else if (mov == "s") {
+			for (int i = 0; i <= ntab; i++) {
+				for (int j = 0; j <= ntab; j++) {
+					this->matrizC[i][j];
+
+					if (matrizC[i][j--] >= 0) {
+						if (matrizC[i][j--] == 0 || matrizC[i][j--] == matrizC[i][j]) {
+							matrizC[i][j--] = matrizC[i][j] + matrizC[i][j--];
+							matrizC[i][j] = 0;
+						}
+					}
+				}
+			}
+		}
+
+		else if (mov == "a") {
+			for (int i = 0; i <= ntab; i++) {
+				for (int j = 0; j <= ntab; j++) {
+					this->matrizC[i][j];
+
+					if (matrizC[i++][j] >= 0) {
+						if (matrizC[i++][j] == 0 || matrizC[i++][j] == matrizC[i][j]) {
+							matrizC[i++][j] = matrizC[i][j] + matrizC[i++][j];
+							matrizC[i][j] = 0;
+						}
+					}
+				}
+			}
+		}
+
+		else if (mov == "d") {
+			for (int i = 0; i <= ntab; i++) {
+				for (int j = 0; j <= ntab; j++) {
+					this->matrizC[i][j];
+
+					if (matrizC[i--][j] >= 0) {
+						if (matrizC[i--][j] == 0 || matrizC[i--][j] == matrizC[i][j]) {
+							matrizC[i--][j] = matrizC[i][j] + matrizC[i--][j];
+							matrizC[i][j] = 0;
+						}
+					}
+				}
+			}
+		}
+
+		}
+
+		else if (ntab == 3) {
+
+		if (mov == "w") {
+
+			for (int i = 0; i <= ntab; i++) {
+				for (int j = 0; j <= ntab; j++) {
+					this->matrizD[i][j];
+
+					if (matrizA[i][j++] >= 0) {
+						if (matrizD[i][j++] == 0 || matrizD[i][j++] == matrizD[i][j]) {
+							matrizD[i][j++] = matrizD[i][j] + matrizD[i][j++];
+							matrizD[i][j] = 0;
+						}
+					}
+				}
+			}
+		}
+
+
+		else if (mov == "s") {
+			for (int i = 0; i <= ntab; i++) {
+				for (int j = 0; j <= ntab; j++) {
+					this->matrizD[i][j];
+
+					if (matrizA[i][j--] >= 0) {
+						if (matrizD[i][j--] == 0 || matrizD[i][j--] == matrizD[i][j]) {
+							matrizD[i][j--] = matrizD[i][j] + matrizD[i][j--];
+							matrizD[i][j] = 0;
+						}
+					}
+				}
+			}
+		}
+
+		else if (mov == "a") {
+			for (int i = 0; i <= ntab; i++) {
+				for (int j = 0; j <= ntab; j++) {
+					this->matrizA[i][j];
+
+					if (matrizD[i++][j] >= 0) {
+						if (matrizD[i++][j] == 0 || matrizD[i++][j] == matrizD[i][j]) {
+							matrizD[i++][j] = matrizD[i][j] + matrizD[i++][j];
+							matrizD[i][j] = 0;
+						}
+					}
+				}
+			}
+		}
+
+		else if (mov == "d") {
+			for (int i = 0; i <= ntab; i++) {
+				for (int j = 0; j <= ntab; j++) {
+					this->matrizD[i][j];
+
+					if (matrizD[i--][j] >= 0) {
+						if (matrizD[i--][j] == 0 || matrizD[i--][j] == matrizD[i][j]) {
+							matrizD[i--][j] = matrizD[i][j] + matrizD[i--][j];
+							matrizD[i][j] = 0;
+						}
+					}
+				}
+			}
+		 }
+		}
+
+	}
+
+};
+
+int main()
+{
+	int op;
+	srand(time(0));
+	cout << "Con que tablero desea trabajar" << endl;
+	cout << "" << endl;
+	cout << " 1. Clasica (4 x 4)" << endl;
+	cout << " 2. Extendida (6 x 6)" << endl;
+	cout << " 3. Dificil (8 x 8)" << endl;
+	cout << " 4. Compacta (3 x 3)" << endl;
+	cout << "" << endl;
+	cout << "Ingrese una opcion" << endl;
+	cin >> op;
+	system("pause");
+	system("cls");
+
+	if (op == 1) {
+		int c = 4;
+		string mov;
+
+		Game juego = Game(c, random1(c), random1(c), random1(c), random1(c));
+		juego.imprimirtabla();
+		cout << "" << endl;
+		cout << "ingrese movimiento" << endl;
+		cin >> mov;
+
+		juego.recorrer(mov);
+	}
+
+	else if (op == 2) {
+		int e = 6;
+		string mov;
+
+		Game juego = Game(e, random1(e), random1(e), random1(e), random1(e));
+		juego.imprimirtabla();
+
+		cout << "" << endl;
+
+		cout << "ingrese movimiento" << endl;
+		cin >> mov;
+
+		juego.recorrer(mov);
+	}
+
+	else if (op == 3) {
+		int d = 8;
+		string mov;
+
+		Game juego = Game(d, random1(d), random1(d), random1(d), random1(d));
+		juego.imprimirtabla();
+
+		cout << "" << endl;
+		cout << "ingrese movimiento" << endl;
+		cin >> mov;
+
+		juego.recorrer(mov);
+	}
+
+	else if (op == 4) {
+		int co = 3;
+		string mov;
+
+		Game juego = Game(co, random1(co), random1(co), random1(co), random1(co));
+		juego.imprimirtabla();
+
+		cout << "" << endl;
+		cout << "ingrese movimiento" << endl;
+		cin >> mov;
+
+		juego.recorrer(mov);
+	}
+
+	else {
+		int c = 4;
+		string mov;
+
+		Game juego = Game(c, random1(c), random1(c), random1(c), random1(c));
+		juego.imprimirtabla();
+
+		cout << "" << endl;
+
+		cout << "ingrese movimiento" << endl;
+		cin >> mov;
+
+		juego.recorrer(mov);
+	}
+	return 0;
+}
