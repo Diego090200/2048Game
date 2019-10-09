@@ -1,9 +1,95 @@
-void recorrer() {
+void recorrer(string mov) {
+
+		//Depende del numero de tabla 
+
 		if (ntab == 4) {
-			for (int i = 0; i <= ntab; i++) {
-				for (int j = 0; j <= ntab; j++) {
-					this->matrizA[i][j];
+
+			//Depende del movimiento recibido de la funcion principal se realizan los movimientos
+			//W arriba, S abajo, D derecha, A izquierda
+
+			if (mov == "w") {
+
+				//Se realiza un for anidado esto para recorrer cada posicion de la matriz
+				//Dependiendo la direccion seleccionada esta se mueve en el eje x o y
+				//para esto el valor de la posicion debe ser 0 o mayor a este
+				//para poder sumar las posiciones estas deben ser  0 o igual al valor de la posicion siguiente
+				//al realizar la suma este debe dejar la casilla en 0
+				//debido al ciclo este sigue recorriendo el arreglo y realizando los procedimientos  
+				// hasta que este llegue a la ultima posicion.
+
+				for (int i = 0; i <= ntab; i++) {
+					for (int j = 0; j <= ntab; j++) {
+						this->matrizA[i][j];
+
+						if (matrizA[i][j--] >= 0) {
+							if (matrizA[i][j--] == 0 || matrizA[i][j--] == matrizA[i][j]) {
+								matrizA[i][j--] = matrizA[i][j] + matrizA[i][j--];
+								matrizA[i][j] = 0;
+							}
+						}
+					}
+				}
+			}
+
+			//Al ser la misma matriz unicamente cambian los movimientos de i o de j dependiendo la direccion
+
+			else if (mov == "s") {
+				for (int i = 0; i <= ntab; i++) {
+					for (int j = 0; j <= ntab; j++) {
+						this->matrizA[i][j];
+
+						if (matrizA[i][j--] >= 0) {
+							if (matrizA[i][j--] == 0 || matrizA[i][j--] == matrizA[i][j]) {
+								matrizA[i][j--] = matrizA[i][j] + matrizA[i][j--];
+								matrizA[i][j] = 0;
+							}
+						}
+					}
+				}
+			}
+			else if (mov == "a") {
+				for (int i = 0; i <= ntab; i++) {
+					for (int j = 0; j <= ntab; j++) {
+						this->matrizA[i][j];
+
+						if (matrizA[i][j--] >= 0) {
+							if (matrizA[i][j--] == 0 || matrizA[i][j--] == matrizA[i][j]) {
+								matrizA[i][j--] = matrizA[i][j] + matrizA[i][j--];
+								matrizA[i][j] = 0;
+							}
+						}
+					}
+				}
+			}
+			else if (mov == "d") {
+				for (int i = 0; i <= ntab; i++) {
+					for (int j = 0; j <= ntab; j++) {
+						this->matrizA[i][j];
+
+						if (matrizA[i][j--] >= 0) {
+							if (matrizA[i][j--] == 0 || matrizA[i][j--] == matrizA[i][j]) {
+								matrizA[i][j--] = matrizA[i][j] + matrizA[i][j--];
+								matrizA[i][j] = 0;
+							}
+						}
+					}
 				}
 			}
 		}
+
+		//En este las acciones se repiten unicamente ntab sera diferente, se realiza el mismo procedimiento para estas
+		//Se colocan sus 4 movimientos
+
+		else if (ntab == 6) {
+
+		}
+
+		else if (ntab == 8) {
+
+		}
+
+		else if (ntab == 3) {
+
+		}
+
 	}
