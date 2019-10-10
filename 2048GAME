@@ -271,7 +271,7 @@ public:
 	//Funcion para realizar los movimientos
 
 	void recorrer(string mov) {
-
+		int r;
 		//Depende del numero de tabla 
 
 		if (ntab == 4) {
@@ -310,9 +310,9 @@ public:
 					for (int j = 0; j <= ntab; j++) {
 						this->matrizA[i][j];
 
-						if (matrizA[i][j--] >= 0) {
-							if (matrizA[i][j--] == 0 || matrizA[i][j--] == matrizA[i][j]) {
-								matrizA[i][j--] = matrizA[i][j] + matrizA[i][j--];
+						if (matrizA[i][j++] >= 0) {
+							if (matrizA[i][j++] == 0 || matrizA[i][j++] == matrizA[i][j]) {
+								matrizA[i][j++] = matrizA[i][j] + matrizA[i][j++];
 								matrizA[i][j] = 0;
 							}
 						}
@@ -324,9 +324,9 @@ public:
 					for (int j = 0; j <= ntab; j++) {
 						this->matrizA[i][j];
 
-						if (matrizA[i][j--] >= 0) {
-							if (matrizA[i][j--] == 0 || matrizA[i][j--] == matrizA[i][j]) {
-								matrizA[i][j--] = matrizA[i][j] + matrizA[i][j--];
+						if (matrizA[i--][j] >= 0) {
+							if (matrizA[i--][j] == 0 || matrizA[i--][j] == matrizA[i][j]) {
+								matrizA[i--][j] = matrizA[i][j] + matrizA[i--][j];
 								matrizA[i][j] = 0;
 							}
 						}
@@ -338,9 +338,9 @@ public:
 					for (int j = 0; j <= ntab; j++) {
 						this->matrizA[i][j];
 
-						if (matrizA[i][j--] >= 0) {
-							if (matrizA[i][j--] == 0 || matrizA[i][j--] == matrizA[i][j]) {
-								matrizA[i][j--] = matrizA[i][j] + matrizA[i][j--];
+						if (matrizA[i++][j] >= 0) {
+							if (matrizA[i++][j] == 0 || matrizA[i++][j] == matrizA[i][j]) {
+								matrizA[i++][j] = matrizA[i][j] + matrizA[i++][j];
 								matrizA[i][j] = 0;
 							}
 						}
@@ -354,14 +354,198 @@ public:
 
 		else if (ntab == 6) {
 
+			if (mov == "w") {
+
+				for (int i = 0; i <= ntab; i++) {
+					for (int j = 0; j <= ntab; j++) {
+						this->matrizB[i][j];
+
+						if (matrizB[i][j--] >= 0) {
+							if (matrizB[i][j--] == 0 || matrizB[i][j--] == matrizB[i][j]) {
+								matrizB[i][j--] = matrizB[i][j] + matrizB[i][j--];
+								matrizB[i][j] = 0;
+							}
+						}
+					}
+				}
+			}
+
+			else if (mov == "s") {
+				for (int i = 0; i <= ntab; i++) {
+					for (int j = 0; j <= ntab; j++) {
+						this->matrizB[i][j];
+
+						if (matrizA[i][j++] >= 0) {
+							if (matrizB[i][j++] == 0 || matrizB[i][j++] == matrizB[i][j]) {
+								matrizB[i][j++] = matrizB[i][j] + matrizB[i][j++];
+								matrizB[i][j] = 0;
+							}
+						}
+					}
+				}
+			}
+
+			else if (mov == "a") {
+				for (int i = 0; i <= ntab; i++) {
+					for (int j = 0; j <= ntab; j++) {
+						this->matrizB[i][j];
+
+						if (matrizB[i--][j] >= 0) {
+							if (matrizB[i--][j] == 0 || matrizB[i--][j] == matrizB[i][j]) {
+								matrizB[i--][j] = matrizB[i][j] + matrizB[i--][j];
+								matrizB[i][j] = 0;
+							}
+						}
+					}
+				}
+			}
+
+			else if (mov == "d") {
+				for (int i = 0; i <= ntab; i++) {
+					for (int j = 0; j <= ntab; j++) {
+						this->matrizB[i][j];
+
+						if (matrizB[i++][j] >= 0) {
+							if (matrizB[i++][j] == 0 || matrizB[i++][j] == matrizB[i][j]) {
+								matrizB[i++][j] = matrizB[i][j] + matrizB[i++][j];
+								matrizB[i][j] = 0;
+							}
+						}
+					}
+				}
+			}
 		}
 
 		else if (ntab == 8) {
+
+			if (mov == "w") {
+
+				for (int i = 0; i <= ntab; i++) {
+					for (int j = 0; j <= ntab; j++) {
+						this->matrizC[i][j];
+
+						if (matrizC[i][j--] >= 0) {
+							if (matrizC[i][j--] == 0 || matrizC[i][j--] == matrizC[i][j]) {
+								matrizC[i][j--] = matrizC[i][j] + matrizC[i][j--];
+								matrizC[i][j] = 0;
+							}
+						}
+					}
+				}
+			}
+
+			else if (mov == "s") {
+				for (int i = 0; i <= ntab; i++) {
+					for (int j = 0; j <= ntab; j++) {
+						this->matrizC[i][j];
+
+						if (matrizC[i][j++] >= 0) {
+							if (matrizC[i][j++] == 0 || matrizC[i][j++] == matrizC[i][j]) {
+								matrizC[i][j++] = matrizC[i][j] + matrizC[i][j++];
+								matrizC[i][j] = 0;
+							}
+						}
+					}
+				}
+			}
+
+			else if (mov == "a") {
+				for (int i = 0; i <= ntab; i++) {
+					for (int j = 0; j <= ntab; j++) {
+						this->matrizC[i][j];
+
+						if (matrizC[i--][j] >= 0) {
+							if (matrizC[i--][j] == 0 || matrizC[i--][j] == matrizC[i][j]) {
+								matrizC[i--][j] = matrizC[i][j] + matrizC[i--][j];
+								matrizC[i][j] = 0;
+							}
+						}
+					}
+				}
+			}
+
+			else if (mov == "d") {
+				for (int i = 0; i <= ntab; i++) {
+					for (int j = 0; j <= ntab; j++) {
+						this->matrizC[i][j];
+
+						if (matrizC[i++][j] >= 0) {
+							if (matrizC[i++][j] == 0 || matrizC[i++][j] == matrizC[i][j]) {
+								matrizC[i++][j] = matrizC[i][j] + matrizC[i++][j];
+								matrizC[i][j] = 0;
+							}
+						}
+					}
+				}
+			}
 
 		}
 
 		else if (ntab == 3) {
 
+			if (mov == "w") {
+
+				for (int i = 0; i <= ntab; i++) {
+					for (int i = 0; i <= ntab; i++) {
+						for (int j = 0; j <= ntab; j++) {
+							this->matrizD[i][j];
+
+							if (matrizA[i][j--] >= 0) {
+								if (matrizD[i][j--] == 0 || matrizD[i][j--] == matrizD[i][j]) {
+									matrizD[i][j--] = matrizD[i][j] + matrizD[i][j--];
+									matrizD[i][j] = 0;
+								}
+							}
+						}
+					}
+					
+				}
+			}
+
+			else if (mov == "s") {
+				for (int i = 0; i <= ntab; i++) {
+					for (int j = 0; j <= ntab; j++) {
+						this->matrizD[i][j];
+
+						if (matrizA[i][j++] >= 0) {
+							if (matrizD[i][j++] == 0 || matrizD[i][j++] == matrizD[i][j]) {
+								matrizD[i][j++] = matrizD[i][j] + matrizD[i][j++];
+								matrizD[i][j] = 0;
+							}
+						}
+					}
+				}
+			}
+
+			else if (mov == "a") {
+				for (int i = 0; i <= ntab; i++) {
+					for (int j = 0; j <= ntab; j++) {
+						this->matrizA[i][j];
+
+						if (matrizD[i++][j] >= 0) {
+							if (matrizD[i--][j] == 0 || matrizD[i--][j] == matrizD[i][j]) {
+								matrizD[i--][j] = matrizD[i][j] + matrizD[i--][j];
+								matrizD[i][j] = 0;
+							}
+						}
+					}
+				}
+			}
+
+			else if (mov == "d") {
+				for (int i = 0; i <= ntab; i++) {
+					for (int j = 0; j <= ntab; j++) {
+						this->matrizD[i][j];
+
+						if (matrizD[i++][j] >= 0) {
+							if (matrizD[i++][j] == 0 || matrizD[i++][j] == matrizD[i][j]) {
+								matrizD[i++][j] = matrizD[i][j] + matrizD[i++][j];
+								matrizD[i][j] = 0;
+							}
+						}
+					}
+				}
+			}
 		}
 
 	}
