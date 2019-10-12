@@ -9,8 +9,6 @@ using namespace std;
 //Funcion para obtener numeros random
 
 int random1(int c) {
-
-
 	return rand() % c;
 }
 
@@ -32,58 +30,54 @@ class Game {
 
 public:
 
-	//Constructor
-
 	Game(int ntab, int ran1, int ran2, int ran3, int ran4) {
-		this->ntab = ntab;                                       
-		this->posx = ran1;										 
-		this->posy = ran2;	
+		this->ntab = ntab;
+		this->posx = ran1;
+		this->posy = ran2;
 		this->posx2 = ran3;
 		this->posy2 = ran4;
-		
+
 		//Dependiendo el numero de espacios se crea la matriz a utilizar, y se inicia con todas las posiciones en 0
 
-		if (ntab == 4) {										 
-			for (int i = 0; i <= 4; i++) {						 
-				for (int j = 0; j <= 4; j++) {					 
+		if (ntab == 4) {
+			for (int i = 0; i <= 4; i++) {
+				for (int j = 0; j <= 4; j++) {
 					this->matrizA[i][j] = 0;
 				}
 			}
 		}
 
-		else if (ntab == 6) {									 
-			for (int i = 0; i <= 6; i++) {						 
-				for (int j = 0; j <= 6; j++) {					 
+		else if (ntab == 6) {
+			for (int i = 0; i <= 6; i++) {
+				for (int j = 0; j <= 6; j++) {
 					this->matrizB[i][j] = 0;
 				}
 			}
 		}
 
-		else if (ntab == 8) {                                   
-			for (int i = 0; i <= 8; i++) {						
-				for (int j = 0; j <= 8; j++) {					
+		else if (ntab == 8) {
+			for (int i = 0; i <= 8; i++) {
+				for (int j = 0; j <= 8; j++) {
 					this->matrizC[i][j] = 0;
 				}
 			}
 		}
 
-		else if (ntab == 3) {									
-			for (int i = 0; i <= 3; i++) {						
-				for (int j = 0; j <= 3; j++) {					
+		else if (ntab == 3) {
+			for (int i = 0; i <= 3; i++) {
+				for (int j = 0; j <= 3; j++) {
 					this->matrizC[i][j] = 0;
 				}
 			}
 		}
 	}
 
-	//Funcion para imprimir la tabla inicial, en esta se imprime el valor 2 en dos posiciones aleatorias
-
 	void imprimirtabla()
 	{
-		if (ntab == 4) {											
+		if (ntab == 4) {
 			this->matrizA[posx][posy] = 2;
-			this->matrizA[posx2][posy2] = 2;						
-			cout << "    ";											
+			this->matrizA[posx2][posy2] = 2;
+			cout << "    ";
 			for (int n = 0; n < this->ntab; n++)
 			{
 				cout << " " << n << " ";
@@ -118,7 +112,7 @@ public:
 		}
 
 		else if (ntab == 6) {										//Si el numero de espacios es de 6
-			this->matrizB[posx][posy] = 2;	
+			this->matrizB[posx][posy] = 2;
 			this->matrizB[posx2][posy2] = 2;						//La matriz de 6x6 en las posiciones
 			cout << "    ";											//Random son igualadas al valor 2
 			for (int n = 0; n < this->ntab; n++)
@@ -156,7 +150,7 @@ public:
 		}
 
 		else if (ntab == 8) {										//Si el numero de espacios es de 8
-			this->matrizC[posx][posy] = 2;	
+			this->matrizC[posx][posy] = 2;
 			this->matrizC[posx2][posy2] = 2;						//La matriz de 8x8 en las posiciones
 			cout << "    ";											//Random son igualadas al valor 2
 			for (int n = 0; n < this->ntab; n++)
@@ -194,7 +188,7 @@ public:
 		}
 
 		else if (ntab == 3) {											//Si el numero de espacios es de 3
-			this->matrizD[posx][posy] = 2;	
+			this->matrizD[posx][posy] = 2;
 			this->matrizD[posx2][posy2] = 2;							//La matriz de 3x3 en la posicion
 			cout << "    ";												//Random son igualadas al valor de 2
 			for (int n = 0; n < this->ntab; n++)
@@ -251,10 +245,12 @@ public:
 				cout << i << " | ";
 				for (int j = 0; j < this->ntab; j++)
 				{
-
 					if (this->posx == j && this->posy == i)
 					{
 						cout << " " << this->matrizA[posx][posy];
+					}
+					else if (this->posx2 == j && this->posy2 == i) {
+						cout << " " << this->matrizA[posx2][posy2];
 					}
 					else
 					{
@@ -268,89 +264,205 @@ public:
 
 	}
 
-	//Funcion para realizar los movimientos
+	void imprimirmov() {
+		
+		if (ntab == 4) {
+			cout << "    ";
+			for (int n = 0; n < this->ntab; n++)
+			{
+				cout << " " << n << " ";
+			}
+			cout << endl;
+			cout << "    ";
+			for (int n = 0; n < this->ntab; n++)
+			{
+				cout << " - ";
+			}
+			cout << endl;
+			for (int i = 0; i < this->ntab; i++)
+			{
+				cout << i << " | ";
+				for (int j = 0; j < this->ntab; j++)
+				{
+					cout << " " << matrizA[i][j];
+				}
+				cout << endl;
+			}
+
+		}
+
+		else if (ntab == 6) {										
+			cout << "    ";											
+			for (int n = 0; n < this->ntab; n++)
+			{
+				cout << " " << n << " ";
+			}
+			cout << endl;
+			cout << "    ";
+			for (int n = 0; n < this->ntab; n++)
+			{
+				cout << " - ";
+			}
+			cout << endl;
+			for (int i = 0; i < this->ntab; i++)
+			{
+				cout << i << " | ";
+				for (int j = 0; j < this->ntab; j++)
+				{
+					cout << " " << matrizB[i][j];
+				}
+				cout << endl;
+			}
+
+		}
+
+		else if (ntab == 8) {										
+			cout << "    ";											
+			for (int n = 0; n < this->ntab; n++)
+			{
+				cout << " " << n << " ";
+			}
+			cout << endl;
+			cout << "    ";
+			for (int n = 0; n < this->ntab; n++)
+			{
+				cout << " - ";
+			}
+			cout << endl;
+			for (int i = 0; i < this->ntab; i++)
+			{
+				cout << i << " | ";
+				for (int j = 0; j < this->ntab; j++)
+				{
+					cout << " " << matrizC[i][j];
+				}
+				cout << endl;
+			}
+
+		}
+
+		else if (ntab == 3) {											
+			cout << "    ";												
+			for (int n = 0; n < this->ntab; n++)
+			{
+				cout << " " << n << " ";
+			}
+			cout << endl;
+			cout << "    ";
+			for (int n = 0; n < this->ntab; n++)
+			{
+				cout << " - ";
+			}
+			cout << endl;
+			for (int i = 0; i < this->ntab; i++)
+			{
+				cout << i << " | ";
+				for (int j = 0; j < this->ntab; j++)
+				{
+					cout << " " << matrizD[i][j];
+				}
+				cout << endl;
+			}
+
+		}
+
+		else {
+			cout << "    ";
+			for (int n = 0; n < this->ntab; n++)
+			{
+				cout << " " << n << " ";
+			}
+			cout << endl;
+			cout << "    ";
+			for (int n = 0; n < this->ntab; n++)
+			{
+				cout << " - ";
+			}
+			cout << endl;
+			for (int i = 0; i < this->ntab; i++)
+			{
+				cout << i << " | ";
+				for (int j = 0; j < this->ntab; j++)
+				{
+					cout << " " << matrizA[i][j];
+				}
+				cout << endl;
+			}
+
+		}
+
+	}
 
 	void recorrer(string mov) {
-		int r;
 		//Depende del numero de tabla 
 
 		if (ntab == 4) {
 
-			//Depende del movimiento recibido de la funcion principal se realizan los movimientos
-			//W arriba, S abajo, D derecha, A izquierda
-
 			if (mov == "w") {
-
-				//Se realiza un for anidado esto para recorrer cada posicion de la matriz
-				//Dependiendo la direccion seleccionada esta se mueve en el eje x o y
-				//para esto el valor de la posicion debe ser 0 o mayor a este
-				//para poder sumar las posiciones estas deben ser  0 o igual al valor de la posicion siguiente
-				//al realizar la suma este debe dejar la casilla en 0
-				//debido al ciclo este sigue recorriendo el arreglo y realizando los procedimientos  
-				// hasta que este llegue a la ultima posicion.
-
-				for (int i = 0; i <= ntab; i++) {
-					for (int j = 0; j <= ntab; j++) {
+				int i = 0;
+				int j = 0;
+				while(i<ntab){
+					while(j<ntab){
 						this->matrizA[i][j];
 
-						if (matrizA[i][j--] >= 0) {
-							if (matrizA[i][j--] == 0 || matrizA[i][j--] == matrizA[i][j]) {
-								matrizA[i][j--] = matrizA[i][j] + matrizA[i][j--];
-								matrizA[i][j] = 0;
+						if (this->matrizA[i][j--] >= 0) {
+							if (this->matrizA[i][j--] == 0 || this->matrizA[i][j--] == this->matrizA[i][j]) {
+								this->matrizA[i][j--] = this->matrizA[i][j] + this->matrizA[i][j--];
+								this->matrizA[i][j] = 0;
 							}
 						}
+						j++;
 					}
+					i++;
 				}
+				this->imprimirmov();
 			}
-
-			//Al ser la misma matriz unicamente cambian los movimientos de i o de j dependiendo la direccion
-
 			else if (mov == "s") {
-				for (int i = 0; i <= ntab; i++) {
-					for (int j = 0; j <= ntab; j++) {
+				for (int i = 0; i < ntab; i++) {
+					for (int j = 0; j < ntab; j++) {
 						this->matrizA[i][j];
 
-						if (matrizA[i][j++] >= 0) {
-							if (matrizA[i][j++] == 0 || matrizA[i][j++] == matrizA[i][j]) {
-								matrizA[i][j++] = matrizA[i][j] + matrizA[i][j++];
-								matrizA[i][j] = 0;
+						if (this->matrizA[i][j++] >= 0) {
+							if (this->matrizA[i][j++] == 0 || this->matrizA[i][j++] == this->matrizA[i][j]) {
+								this->matrizA[i][j++] = this->matrizA[i][j] + this->matrizA[i][j++];
+								this->matrizA[i][j] = 0;
 							}
 						}
 					}
 				}
+				//this->imprimirmov();
 			}
 			else if (mov == "a") {
 				for (int i = 0; i <= ntab; i++) {
 					for (int j = 0; j <= ntab; j++) {
 						this->matrizA[i][j];
 
-						if (matrizA[i--][j] >= 0) {
-							if (matrizA[i--][j] == 0 || matrizA[i--][j] == matrizA[i][j]) {
-								matrizA[i--][j] = matrizA[i][j] + matrizA[i--][j];
-								matrizA[i][j] = 0;
+						if (this->matrizA[i--][j] >= 0) {
+							if (this->matrizA[i--][j] == 0 || this->matrizA[i--][j] == this->matrizA[i][j]) {
+								this->matrizA[i--][j] = this->matrizA[i][j] + this->matrizA[i--][j];
+								this->matrizA[i][j] = 0;
 							}
 						}
 					}
 				}
+				//this->imprimirmov();
 			}
 			else if (mov == "d") {
 				for (int i = 0; i <= ntab; i++) {
 					for (int j = 0; j <= ntab; j++) {
 						this->matrizA[i][j];
 
-						if (matrizA[i++][j] >= 0) {
-							if (matrizA[i++][j] == 0 || matrizA[i++][j] == matrizA[i][j]) {
-								matrizA[i++][j] = matrizA[i][j] + matrizA[i++][j];
-								matrizA[i][j] = 0;
+						if (this->matrizA[i++][j] >= 0) {
+							if (this->matrizA[i++][j] == 0 || this->matrizA[i++][j] == this->matrizA[i][j]) {
+								this->matrizA[i++][j] = this->matrizA[i][j] + this->matrizA[i++][j];
+								this->matrizA[i][j] = 0;
 							}
 						}
 					}
 				}
+				//this->imprimirmov();
 			}
 		}
-
-		//En este las acciones se repiten unicamente ntab sera diferente, se realiza el mismo procedimiento para estas
-		//Se colocan sus 4 movimientos
 
 		else if (ntab == 6) {
 
